@@ -1,0 +1,16 @@
+logs
+*.log
+npm-debug.log*
+debug.log*
+coverage
+.nyc_output
+node_modules/
+*.tsbuildinfo
+.npm
+.eslintcache
+*.tgz
+.env
+.env.test
+.cache
+dist
+.vscode/
