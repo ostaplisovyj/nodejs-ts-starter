@@ -7,6 +7,6 @@ Starts development server using `nodemon` and `ts-node`
 #### `npm start`
 Launches server in production mode
 #### `npm run lint`
-Runs linter
+Runs eslint along with prettier
 #### `npm run test`
-Runs mocha unit tests
+Runs jest unit tests

@@ -1,45 +1,69 @@
 {
   "name": "ts-starter",
-  "version": "1.0.0",
-  "description": "A basic typescript app starter",
+  "version": "1.1.0",
+  "description": "A basic typescript app starter for nodejs",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./build && tsc",
-    "start:dev": "nodemon",
     "start": "npm run build && node build/index.js",
-    "lint": "eslint . --ext .ts",
-    "test": "mocha -r ts-node/register test/**/*.spec.ts"
+    "start:dev": "nodemon --exec npm run ts-node",
+    "ts-node": "ts-node ./src/index.ts",
+    "build": "rimraf ./build && tsc",
+    "lint": "eslint --fix . --ext .js,.ts",
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "ostap@lisovyi.com",
+  "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^4.2.9",
-    "@types/cookie-parser": "^1.4.2",
-    "@types/express": "^4.17.2",
-    "@types/mocha": "^7.0.1",
-    "@types/node": "^12.7.2",
-    "@typescript-eslint/eslint-plugin": "^2.21.0",
-    "@typescript-eslint/parser": "^2.21.0",
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "husky": "^4.2.3",
-    "mocha": "^7.1.0",
-    "nodemon": "^1.19.1",
+    "@types/config": "^3.3.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.15",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.1",
     "rimraf": "^3.0.0",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.6.2"
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "express": "^4.17.1",
-    "winston": "^3.2.1"
+    "body-parser": "^1.20.1",
+    "config": "^3.3.8",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "module-alias": "^2.2.2",
+    "typescript": "^4.9.4",
+    "winston": "^3.8.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "notify": true,
+    "rootDir": "src/",
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
+  },
+  "_moduleAliases": {
+    "@src": "src"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test",
-      "pre-push": "npm run lint && npm test"
+      "pre-commit": "npm run lint && npm run test"
     }
   }
 }

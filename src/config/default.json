@@ -1,0 +1,4 @@
+{
+  "db": "mongo",
+  "dbEnv": "MONGO_HOST"
+}

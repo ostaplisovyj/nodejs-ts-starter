@@ -1,0 +1,5 @@
+{
+  "dbConfig": {
+    "host": "MONGO_HOST"
+  }
+}
